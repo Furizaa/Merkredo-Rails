@@ -6,7 +6,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'devise'
+gem 'fast_xor', git: 'git://github.com/CodeMonkeySteve/fast_xor.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,6 +19,21 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation'
+end
+
+group :test, :development do
+  gem 'guard'
+  gem 'guard-jshint-on-rails'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'rspec-rails'
+  gem 'shoulda'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'jquery-rails'

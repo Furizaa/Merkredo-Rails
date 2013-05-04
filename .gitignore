@@ -29,3 +29,6 @@ sublime-project.sublime-workspace
 
 # Heroku
 .procfile
+
+# Env
+.env
