@@ -64,6 +64,7 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.6.5)
     ffi (1.8.1)
     formatador (0.2.4)
     guard (1.8.0)
@@ -201,6 +202,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
+  fabrication
   fast_xor!
   guard
   guard-jshint-on-rails

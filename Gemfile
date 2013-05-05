@@ -29,6 +29,7 @@ group :test, :development do
   gem 'guard-spork'
   gem 'rspec-rails'
   gem 'shoulda'
+  gem 'fabrication'
 end
 
 group :development do
