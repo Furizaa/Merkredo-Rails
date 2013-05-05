@@ -61,5 +61,8 @@ module Merkredo
 
     # Don't access the db while compiling assets
     config.assets.initialize_on_precompile = false
+
+    # Password hash iterations
+    config.pbkdf2_iterations = 64000
   end
 end

@@ -25,6 +25,7 @@ describe Account do
     end
   end
 
+
   describe 'name validation' do
 
     ['Andreas', 'Josè', "d'Arras", 'Luther King, Jr.', 'Sausage-Hausen'].each do |finename|
@@ -43,6 +44,35 @@ describe Account do
         account.last_name = badname
         account.should_not be_valid
       end
+    end
+
+  end
+
+
+  describe 'password' do
+
+    before do
+      @account = Fabricate.build(:account)
+      @account.password = 'nyancat'
+      @account.save!
+    end
+
+    it 'should have a valid password after initial save' do
+      @account.confirm_password?('nyancat').should be_true
+    end
+
+    it 'should have a hashed password after initial save' do
+      @account.password_hash.length.should eq 64
+    end
+
+  end
+
+  describe 'password validation' do
+
+    it 'should has more than 5 characters' do
+      account = Fabricate.build(:account)
+      account.password = '12345'
+      account.should_not be_valid
     end
 
   end
