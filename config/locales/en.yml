@@ -1,5 +1,20 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+
+  company:
+    name:
+      blank: "Comapny name must be set."
+      short: "Company name must be at least {{min}} characters."
+      long: "Company name to long. Max {{max}} characters."
+      characters: "Company name contains invalid characters."
+
+  account:
+    first_name:
+      characters: "First name contains invalid characters."
+    last_name:
+      characters: "Last name contains invalid characters."
+    password:
+      blank: "Password must be set."
+      short: "Password must be at last {{min}} characters."
+
+  email:
+    invalid: "Please enter a valid E-Mail address."

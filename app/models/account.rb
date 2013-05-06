@@ -13,6 +13,8 @@ class Account < ActiveRecord::Base
 
   before_save :ensure_password_is_hashed
 
+  PASSWORD_MIN_LENGTH = 6
+
   def password=(password)
     @raw_password = password unless password.blank?
   end
@@ -23,6 +25,7 @@ class Account < ActiveRecord::Base
   end
 
   private
+
 
   def hash_password(password, salt)
     Pbkdf2.hash_password(password, salt, Rails.configuration.pbkdf2_iterations)
@@ -38,18 +41,18 @@ class Account < ActiveRecord::Base
   def validate_real_name
     test = /[\$"!§%&\\\/\(\)=\?\*\+#\@0-9]/i
     if first_name =~ test
-      errors.add(:password, 'invalid')
+      errors.add(:password, I18n.t(:'account.first_name.characters'))
     end
     if last_name =~ test
-      errors.add(:password, 'invalid')
+      errors.add(:password, I18n.t(:'account.last_name.characters'))
     end
   end
 
   def validate_password
     if (!@raw_password)
-      errors.add(:first_name, 'password empty')
-    elsif (@raw_password.length < 6)
-      errors.add(:first_name, 'must be at least 6 chars long')
+      errors.add(:first_name, I18n.t(:'account.password.blank'))
+    elsif (@raw_password.length < PASSWORD_MIN_LENGTH)
+      errors.add(:first_name, I18n.t(:'account.password.short', min: PASSWORD_MIN_LENGTH))
     end
   end
 end

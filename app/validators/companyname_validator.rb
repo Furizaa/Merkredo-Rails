@@ -20,28 +20,28 @@ class CompanynameValidator
   def name_empty?
     return unless errors.empty?
     unless name
-      self.errors << 'to empty'
+      self.errors << I18n.t(:'comapny.name.blank')
     end
   end
 
   def name_length_min?
     return unless errors.empty?
     if name.length < Company.name_length.begin
-      self.errors << 'to short'
+      self.errors << I18n.t(:'company.name.short', min: Company.name_length.begin)
     end
   end
 
   def name_length_max?
     return unless errors.empty?
     if name.length > Company.name_length.end
-      self.errors << 'to long'
+      self.errors << I18n.t(:'company.name.long', max: Company.name_length.end)
     end
   end
 
   def name_char_valid?
     return unless errors.empty?
     if name =~ /[^A-Za-z0-9&\.\ ]/
-      self.errors << 'invalid char'
+      self.errors << I18n.t(:'company.name.characters')
     end
   end
 
