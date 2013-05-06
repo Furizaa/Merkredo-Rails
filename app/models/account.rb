@@ -36,7 +36,7 @@ class Account < ActiveRecord::Base
   end
 
   def validate_real_name
-    test = /[\$\"\!§%&\\\/\(\)=\?\*\+\#\@0-9]/i
+    test = /[\$"!§%&\\\/\(\)=\?\*\+#\@0-9]/i
     if first_name =~ test
       errors.add(:password, 'invalid')
     end

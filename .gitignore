@@ -32,3 +32,6 @@ sublime-project.sublime-workspace
 
 # Env
 .env
+
+# RubyMine
+.idea

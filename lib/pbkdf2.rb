@@ -5,7 +5,7 @@ class Pbkdf2
 
   def self.hash_password(password, salt, iterations)
 
-    digest = OpenSSL::Digest::Digest.new("sha256")
+    digest = OpenSSL::Digest.new("sha256")
     u = ret = prf(digest, password, salt + [1].pack("n"))
 
     2.upto(iterations) do
