@@ -64,5 +64,8 @@ module Merkredo
 
     # Password hash iterations
     config.pbkdf2_iterations = 64000
+
+    # Handlebars Template Root Directory
+    config.handlebars.templates_root = 'templates'
   end
 end

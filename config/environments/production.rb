@@ -45,7 +45,7 @@ Merkredo::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # Precompile additional assets (application.js.coffee, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
@@ -64,4 +64,7 @@ Merkredo::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # EmberJs
+  config.ember.variant = :production
 end

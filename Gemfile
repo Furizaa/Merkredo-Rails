@@ -8,6 +8,9 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'fast_xor', git: 'git://github.com/CodeMonkeySteve/fast_xor.git'
 
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc3.3'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
