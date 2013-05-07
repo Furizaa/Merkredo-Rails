@@ -6,34 +6,20 @@ describe Company do
   it { should validate_presence_of :name }
   it { should validate_presence_of :plan }
 
-  describe 'name format' do
+  describe '#name' do
 
-    it "should always be 3 chars or longer" do
-      @company = Fabricate.build(:company)
-      @company.name = 'aa'
-      @company.save.should == false
+    context 'has to be between 3 and 30 characters long' do
+      it { should_not allow_value('ab').for(:name) }
+      it { should allow_value('abc').for(:name) }
+      it { should_not allow_value('abcd-abcd-abcd-abcd-abcd-abcd-a').for(:name) }
     end
 
-    it "should always be less then 31 chars" do
-      @company = Fabricate.build(:company)
-      @company.name = 'abcd-abcd-abcd-abcd-abcd-abcd-a'
-      @company.save.should == false
-    end
-
-    ['Acme%Corp', 'Some<e>ntities', '@twitter', '#hash', 'sa$$y', 'e@mail.io'].each do |bad_name|
-      it "should not allow '#{bad_name}'" do
-        @company = Fabricate.build(:company)
-        @company.name = bad_name
-        @company.save.should == false
-      end
+    %w(Acme%Corp Some<e>ntities @twitter #hash sa$$y e@mail.io).each do |bad_name|
+      it { should_not allow_value(bad_name).for(:name) }
     end
 
     ['Acme Corp.', 'AT&T'].each do |good_name|
-      it "should allow '#{good_name}'" do
-        @company = Fabricate.build(:company)
-        @company.name = good_name
-        @company.save.should == true
-      end
+      it { should allow_value(good_name).for(:name) }
     end
 
   end

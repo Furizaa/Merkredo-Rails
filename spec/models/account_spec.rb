@@ -9,68 +9,47 @@ describe Account do
   it { should_not validate_presence_of :first_name }
   it { should_not validate_presence_of :last_name }
 
-  describe 'email validation' do
-    ['dot.fine@gmail.com', 'mail@example.museum'].each do |finemail|
-      it "should allow valid mail '#{finemail}'" do
-        account = Fabricate.build(:account, email: finemail)
-        account.should be_valid
-      end
+  describe '#email' do
+    %w(dot.fine@gmail.com mail@example.museum).each do |finemail|
+      it { should allow_value(finemail).for(:email) }
     end
 
-    ['@gmail.com', 'mail@', 'gmail.com'].each do |badmail|
-      it "should not allow invalid mail '#{badmail}'" do
-        account = Fabricate.build(:account, email: badmail)
-        account.should_not be_valid
-      end
+    %w(@gmail.com mail@ gmail.com).each do |badmail|
+      it { should_not allow_value(badmail).for(:email) }
     end
   end
 
-
-  describe 'name validation' do
+  describe '#name' do
 
     ['Andreas', 'Josè', "d'Arras", 'Luther King, Jr.', 'Sausage-Hausen'].each do |finename|
-      it "should allow valid name '#{finename}'" do
-        account = Fabricate.build(:account)
-        account.first_name = finename
-        account.last_name = finename
-        account.should be_valid
-      end
+      it { should allow_value(finename).for(:first_name) }
+      it { should allow_value(finename).for(:last_name) }
     end
 
-    ['Dave$', '"john', '#hash', '@twitter', '§what', 'the?', 'hel*'].each do |badname|
-      it "should not allow invalid name '#{badname}'" do
-        account = Fabricate.build(:account)
-        account.first_name = badname
-        account.last_name = badname
-        account.should_not be_valid
-      end
+    %w(Dave$ "john #hash @twitter §what the? hel*).each do |badname|
+      it { should_not allow_value(badname).for(:first_name) }
+      it { should_not allow_value(badname).for(:last_name) }
     end
 
   end
 
+  describe '#password' do
 
-  describe 'password' do
+    let(:account)  { Fabricate.build(:account) }
 
-    before do
-      @account = Fabricate.build(:account)
-      @account.password = 'nyancat'
-      @account.save!
+    it 'is valid after initial save' do
+      account.password = 'nyancat'
+      account.save!
+      account.confirm_password?('nyancat').should be_true
     end
 
-    it 'should have a valid password after initial save' do
-      @account.confirm_password?('nyancat').should be_true
+    it 'is hashed after initial save' do
+      account.password = 'roger1'
+      account.save!
+      account.password_hash.length.should eq 64
     end
 
-    it 'should have a hashed password after initial save' do
-      @account.password_hash.length.should eq 64
-    end
-
-  end
-
-  describe 'password validation' do
-
-    it 'should has more than 5 characters' do
-      account = Fabricate.build(:account)
+    it 'needs more than 5 characters' do
       account.password = '12345'
       account.should_not be_valid
     end

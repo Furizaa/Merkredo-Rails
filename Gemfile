@@ -28,6 +28,7 @@ group :test, :development do
   gem 'guard'
   gem 'guard-jshint-on-rails'
   gem 'guard-livereload'
+  gem 'rb-fsevent'
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'fabrication'
