@@ -1,0 +1,1 @@
+Merkredo.ModalBodyView = Ember.View.extend()

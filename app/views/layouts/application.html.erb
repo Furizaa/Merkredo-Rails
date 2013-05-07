@@ -22,8 +22,12 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= javascript_include_tag "templates/all" %>
+    <section id="main">
+      <div id="main-outlet" class="container">
+        <%= yield %>
+      </div>
+    </section>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

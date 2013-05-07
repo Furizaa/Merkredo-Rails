@@ -3,11 +3,17 @@
 #= require foundation
 #= require handlebars
 #= require ember
-#= require_self
-#= require merkredo
-window.Merkredo = Merkredo = Ember.Application.create()
 
-#= require_tree .
+#= require ./merkredo
+
+#= require_tree ./controllers
+#= require_tree ./models
+#= require_tree ./templates
+#= require_tree ./views
+#= require_tree ./helpers
+#= require_tree ./routes
+
+#= require_self
 
 $ =>
   $(document).foundation()
