@@ -8,7 +8,10 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'fast_xor', git: 'git://github.com/CodeMonkeySteve/fast_xor.git'
 
-gem 'ember-rails'
+#we had issues with latest, stick to the rev till we figure this out
+# PR that makes it all hang together welcome
+gem 'ember-rails', git: 'git://github.com/emberjs/ember-rails.git', ref: '57bbe32'
+gem 'barber', '0.3.0'
 gem 'ember-source', '1.0.0.rc3.3'
 
 # Gems used only for assets and not required

@@ -6,7 +6,7 @@ Merkredo.ModalView = Ember.ContainerView.extend
 
   childViews: ['modalHeaderView', 'modalBodyView']
 
-  classNames: ['modal']
+  classNames: ['modal reveal-modal small']
 
   classNameBindings: ['controller.currentView.modalClass']
 

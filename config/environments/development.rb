@@ -32,6 +32,9 @@ Merkredo::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+  # Don't Digest assets, makes debugging uglier
+  config.assets.digest = false
+
   # Expands the lines which load the assets
   config.assets.debug = true
 
