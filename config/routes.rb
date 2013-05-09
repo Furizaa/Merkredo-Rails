@@ -1,7 +1,12 @@
 Merkredo::Application.routes.draw do
+  get "accounts/create"
+
   root to: 'application#index'
 
   resources :session, only: [:create]
+
+  resources :accounts, only: [:create]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

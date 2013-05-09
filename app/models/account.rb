@@ -5,14 +5,14 @@ class Account < ActiveRecord::Base
 
   belongs_to :company
 
-  validates_presence_of :company_id
-  validates_presence_of :email
   validates :email, email: true
+  validates_presence_of :email
   validate :validate_real_name
-  validate :validate_password, changed: true
+  validate :validate_password
   validates_uniqueness_of :email
 
   before_save :ensure_password_is_hashed
+  before_create :create_company
 
   PASSWORD_MIN_LENGTH = 6
 
@@ -38,7 +38,20 @@ class Account < ActiveRecord::Base
     @password_required = true
   end
 
+  def self.new_from_params(params)
+    account = Account.new
+    account.email = params[:email]
+    account.password = params[:password]
+    account
+  end
+
   private
+
+  def create_company
+    company = Company.new name: 'Acme Inc.', plan: 0
+    company.save!
+    self.company_id = company.id
+  end
 
   def hash_password(password, salt)
     Pbkdf2.hash_password(password, salt, Rails.configuration.pbkdf2_iterations)
@@ -54,16 +67,16 @@ class Account < ActiveRecord::Base
   def validate_real_name
     test = /[\$"!§%&\\\/\(\)=\?\*\+#\@0-9]/i
     if first_name =~ test
-      errors.add(:first_name, I18n.t(:'account.first_name.characters'))
+      errors.add(:first_name, I18n.t(:'models.account.first_name.characters'))
     end
     if last_name =~ test
-      errors.add(:last_name, I18n.t(:'account.last_name.characters'))
+      errors.add(:last_name, I18n.t(:'models.account.last_name.characters'))
     end
   end
 
   def validate_password
-    if (@raw_password && @raw_password.length < 6) || (@password_required && !@raw_password)
-      errors.add(:password, I18n.t(:'account.password.short'))
+    if (@raw_password && @raw_password.length < PASSWORD_MIN_LENGTH) || (@password_required && !@raw_password)
+      errors.add(:password, I18n.t(:'models.account.password.short', min: PASSWORD_MIN_LENGTH))
     end
   end
 end

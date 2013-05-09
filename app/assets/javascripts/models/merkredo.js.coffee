@@ -1,0 +1,1 @@
+Merkredo.Model = Ember.Object.extend()

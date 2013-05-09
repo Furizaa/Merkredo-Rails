@@ -17,7 +17,7 @@
             <label for="login-password" class="right inline">Passw%I18N%</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.loginPassword" type="password" elementId="login-password" placeholder="6 chars or longer%I18N%"}}
+            {{view Ember.TextField valueBinding="view.loginPassword" type="password" elementId="login-password"}}
           </div>
         </div>
 
@@ -28,5 +28,5 @@
   <hr />
 
   <a href="#" class="button radius" {{action login target="view"}}>%I18N%</a>
-  <span class="small inline">Not having an account yet? <a href="#">Create one.</a></span>
+  <span class="small inline">create_invite%I18N% <a id="new-account-link" {{action newAccount target="view"}}>create_action%I18N%</a></span>
 </div>

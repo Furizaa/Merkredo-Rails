@@ -1,19 +1,25 @@
 en:
 
-  company:
-    name:
-      blank: "Comapny name must be set."
-      short: "Company name must be at least {{min}} characters."
-      long: "Company name to long. Max {{max}} characters."
-      characters: "Company name contains invalid characters."
+  models:
+    company:
+      name:
+        blank: "Company name must be set."
+        short: "Company name must be at least %{min} characters."
+        long: "Company name to long. Max %{max} characters."
+        characters: "Company name contains invalid characters."
 
-  account:
-    first_name:
-      characters: "First name contains invalid characters."
-    last_name:
-      characters: "Last name contains invalid characters."
-    password:
-      short: "Password must be at last {{min}} characters."
+    account:
+      first_name:
+        characters: "contains invalid characters."
+      last_name:
+        characters: "contains invalid characters."
+      password:
+        short: "must be at least %{min} characters long."
+
 
   email:
-    invalid: "Please enter a valid E-Mail address."
+    invalid: "is not valid."
+
+  login:
+    errors: "%{errors}"
+    something_already_taken: "Account already exists."

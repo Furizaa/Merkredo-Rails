@@ -5,7 +5,6 @@ describe Account do
 
   it { should belong_to :company }
   it { should validate_presence_of :email }
-  it { should validate_presence_of :company_id }
   it { should_not validate_presence_of :first_name }
   it { should_not validate_presence_of :last_name }
   it { should validate_uniqueness_of :email}
@@ -65,6 +64,22 @@ describe Account do
       account.should_not be_valid
     end
 
+  end
+
+  context 'account creation' do
+    let(:account) { Fabricate.build(:account) }
+
+    it 'can be instantiated from params' do
+      params = { email: 'developer@merkredo.com', password: 'secret' }
+      account = Account.new_from_params(params)
+      account.email.should eq(params[:email])
+    end
+
+    it 'adds a new company' do
+      account.company_id = nil
+      account.save!
+      account.company_id.should be_present
+    end
   end
 
 end

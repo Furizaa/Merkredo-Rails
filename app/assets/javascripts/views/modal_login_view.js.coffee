@@ -6,6 +6,9 @@ Merkredo.LoginView = Merkredo.ModalBodyView.extend
   showView: (view) ->
     @get('controller').show view
 
+  newAccount: ->
+    @showView Merkredo.CreateAccountView.create()
+
   login: ->
     ajax = Merkredo.ajax '/session',
       type: 'POST'
@@ -17,7 +20,7 @@ Merkredo.LoginView = Merkredo.ModalBodyView.extend
       if result.error
         @flash result.error, 'alert'
 
-    ,(result) =>
+    ,() =>
       @flash 'login.err%I18N%', 'alert'
 
 

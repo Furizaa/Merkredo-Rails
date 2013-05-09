@@ -1,0 +1,40 @@
+<div class="modal-body">
+  <form>
+    <div class="row">
+      <div class="small-12">
+
+        <div class="row">
+          <div class="small-4 columns">
+            <label for="new-account-email" class="right inline">E-Mail%I18N%</label>
+          </div>
+          <div class="small-8 columns">
+            {{view Ember.TextField valueBinding="view.accountEmail" placeholder="mail@example.com" elementId="new-account-email" autofocus="autofocus"}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-4 columns">
+            <label for="new-account-password" class="right inline">Passw%I18N%</label>
+          </div>
+          <div class="small-8 columns">
+            {{view Ember.TextField valueBinding="view.accountPassword" type="password" elementId="new-account-password" placeholder="6 chars or longer%I18N%"}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-4 columns">
+            <label for="new-account-password-confirmation" class="right inline">Passw%I18N%</label>
+          </div>
+          <div class="small-8 columns">
+            {{view Ember.TextField valueBinding="view.accountPasswordConfirm" type="password" elementId="new-account-password-confirmation"}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <hr />
+
+  <a href="#" class="button radius" {{action createAccount target="view"}}>Create Account%I18N%</a>
+</div>
