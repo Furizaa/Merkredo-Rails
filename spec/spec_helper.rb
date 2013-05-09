@@ -10,6 +10,9 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+
+  SeedFu.seed
+
   config.fail_fast = ENV['RSPEC_FAIL_FAST'] == "1"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

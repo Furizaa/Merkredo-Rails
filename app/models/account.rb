@@ -10,6 +10,7 @@ class Account < ActiveRecord::Base
   validates :email, email: true
   validate :validate_real_name
   validate :validate_password, changed: true
+  validates_uniqueness_of :email
 
   before_save :ensure_password_is_hashed
 
@@ -21,11 +22,20 @@ class Account < ActiveRecord::Base
 
   # To satisfy shouldas pretty error printing
   def password
+    read_attribute(:password)
+  end
+
+  def email=(email)
+    write_attribute(:email, email.downcase) if email
   end
 
   def confirm_password?(password)
     return false unless password_hash && salt
     self.password_hash == hash_password(password, salt)
+  end
+
+  def password_required!
+    @password_required = true
   end
 
   private
@@ -52,10 +62,8 @@ class Account < ActiveRecord::Base
   end
 
   def validate_password
-    if (!@raw_password)
-      errors.add(:password, I18n.t(:'account.password.blank'))
-    elsif (@raw_password.length < PASSWORD_MIN_LENGTH)
-      errors.add(:password, I18n.t(:'account.password.short', min: PASSWORD_MIN_LENGTH))
+    if (@raw_password && @raw_password.length < 6) || (@password_required && !@raw_password)
+      errors.add(:password, I18n.t(:'account.password.short'))
     end
   end
 end

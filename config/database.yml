@@ -46,10 +46,10 @@ test:
   username: merkredo
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: merkredo
-  pool: 20
-  username: __TODO__
-  password: __TODO__
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: merkredo
+#  pool: 20
+#  username: __TODO__
+#  password: __TODO__

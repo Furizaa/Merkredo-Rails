@@ -8,14 +8,23 @@ describe Account do
   it { should validate_presence_of :company_id }
   it { should_not validate_presence_of :first_name }
   it { should_not validate_presence_of :last_name }
+  it { should validate_uniqueness_of :email}
 
   describe '#email' do
+
+    let(:account) { Fabricate.build(:account) }
+
     %w(dot.fine@gmail.com mail@example.museum).each do |finemail|
       it { should allow_value(finemail).for(:email) }
     end
 
     %w(@gmail.com mail@ gmail.com).each do |badmail|
       it { should_not allow_value(badmail).for(:email) }
+    end
+
+    it 'is always used downcased' do
+      account.email = 'DeVeLoPeR@Merkredo.Org'
+      account.email.should eq 'developer@merkredo.org'
     end
   end
 
@@ -36,6 +45,8 @@ describe Account do
   describe '#password' do
 
     let(:account)  { Fabricate.build(:account) }
+
+    before { account.password_required! }
 
     it 'is valid after initial save' do
       account.password = 'nyancat'

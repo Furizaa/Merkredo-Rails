@@ -13,7 +13,6 @@ en:
     last_name:
       characters: "Last name contains invalid characters."
     password:
-      blank: "Password must be set."
       short: "Password must be at last {{min}} characters."
 
   email:

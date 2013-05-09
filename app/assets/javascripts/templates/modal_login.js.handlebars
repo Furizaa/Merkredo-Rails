@@ -1,3 +1,32 @@
 <div class="modal-body">
-    <p>Modal that works?</p>
+  <form>
+    <div class="row">
+      <div class="small-12">
+
+        <div class="row">
+          <div class="small-4 columns">
+            <label for="login-email" class="right inline">E-Mail%I18N%</label>
+          </div>
+          <div class="small-8 columns">
+            {{view Ember.TextField valueBinding="view.loginMail" placeholder="mail@example.com" elementId="login-email" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-4 columns">
+            <label for="login-password" class="right inline">Passw%I18N%</label>
+          </div>
+          <div class="small-8 columns">
+            {{view Ember.TextField valueBinding="view.loginPassword" type="password" elementId="login-password" placeholder="6 chars or longer%I18N%"}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <hr />
+
+  <a href="#" class="button radius">%I18N%</a>
+  <span class="small inline">Not having an account yet? <a href="#">Create one.</a></span>
 </div>

@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
 
 gem 'pg'
 gem 'fast_xor', git: 'git://github.com/CodeMonkeySteve/fast_xor.git'
@@ -35,6 +34,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'fabrication'
+  gem 'seed-fu'
 end
 
 group :development do

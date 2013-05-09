@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505182954) do
+ActiveRecord::Schema.define(:version => 20130505180528) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",         :limit => 256
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(:version => 20130505182954) do
     t.string   "last_name"
     t.integer  "gender",                       :default => 0
     t.integer  "group",                        :default => 0
+    t.string   "auth_token"
+    t.integer  "company_id"
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
-    t.integer  "company_id"
   end
 
   create_table "companies", :force => true do |t|
