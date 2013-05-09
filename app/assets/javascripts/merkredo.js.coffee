@@ -11,7 +11,7 @@ window.Merkredo = Merkredo = Ember.Application.create
         url = args.url
         delete args.url
     else if 2 == arguments.length
-      url = arguents[0]
+      url = arguments[0]
       args = arguments[1]
 
     Ember.Deferred.promise (promise) ->

@@ -8,7 +8,7 @@
             <label for="login-email" class="right inline">E-Mail%I18N%</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.loginMail" placeholder="mail@example.com" elementId="login-email" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
+            {{view Ember.TextField valueBinding="view.loginEmail" placeholder="mail@example.com" elementId="login-email" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
           </div>
         </div>
 
@@ -27,6 +27,6 @@
 
   <hr />
 
-  <a href="#" class="button radius">%I18N%</a>
+  <a href="#" class="button radius" {{action login target="view"}}>%I18N%</a>
   <span class="small inline">Not having an account yet? <a href="#">Create one.</a></span>
 </div>
