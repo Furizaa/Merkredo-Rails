@@ -8,7 +8,7 @@ en:
           placeholder: "mail@example.com"
         password:
           label: "Password:"
-          placeholder: ""
+          placeholder: "At least 5 characters long"
         password_confirmation:
           label: "Confirm password:"
           placeholder: ""
