@@ -1,7 +1,7 @@
 Merkredo.CreateAccountView = Merkredo.ModalBodyView.extend
 
   templateName: 'create_account'
-  title: 'create_account%I18N'
+  title: Em.String.i18n 'account.create.title'
 
   createAccount: ->
     ajax = Merkredo.Account.createAccount @get('accountEmail'), @get('accountPassword'), @get('accountPasswordConfirmation')

@@ -31,6 +31,13 @@ module Merkredo
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    config.assets.paths += %W(#{config.root}/config/locales)
+
+    # Precompile all available locales
+    Dir.glob("#{config.root}/app/assets/javascripts/locales/*.js.erb").each do |file|
+      config.assets.precompile << "locales/#{file.match(/([a-z_A-Z]+\.js)\.erb$/)[1]}"
+    end
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de

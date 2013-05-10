@@ -1,0 +1,35 @@
+en:
+  js:
+    account:
+      create:
+        title: "Create Account"
+        email:
+          label: "E-Mail:"
+          placeholder: "mail@example.com"
+        password:
+          label: "Password:"
+          placeholder: ""
+        password_confirmation:
+          label: "Confirm password:"
+          placeholder: ""
+        action:
+          default: "Create Account"
+          load: "Creating Account..."
+
+      login:
+        title: "Account Login"
+        email:
+          label: "E-Mail:"
+          placeholder: "mail@example.com"
+        password:
+          label: "Password:"
+          placeholder: ""
+        action:
+          default: "Login"
+          load: "Logging in..."
+        no_account:
+          invite: "No account yet?"
+          action: "Create one!"
+
+
+

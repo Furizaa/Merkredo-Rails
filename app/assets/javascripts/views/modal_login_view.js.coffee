@@ -1,7 +1,7 @@
 Merkredo.LoginView = Merkredo.ModalBodyView.extend
 
   templateName: 'modal_login'
-  title: '_LOGIN_%I18N%'
+  title: Em.String.i18n 'account.login.title'
 
   showView: (view) ->
     @get('controller').show view

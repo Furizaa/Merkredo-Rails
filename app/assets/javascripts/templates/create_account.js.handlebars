@@ -5,28 +5,28 @@
 
         <div class="row">
           <div class="small-4 columns">
-            <label for="new-account-email" class="right inline">E-Mail%I18N%</label>
+            <label for="new-account-email" class="right inline">{{i18n account.create.email.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.accountEmail" placeholder="mail@example.com" elementId="new-account-email" autofocus="autofocus"}}
+            {{view Ember.TextField valueBinding="view.accountEmail" placeholderKey="account.create.email.placeholder" elementId="new-account-email" autofocus="autofocus"}}
           </div>
         </div>
 
         <div class="row">
           <div class="small-4 columns">
-            <label for="new-account-password" class="right inline">Passw%I18N%</label>
+            <label for="new-account-password" class="right inline">{{i18n account.create.password.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.accountPassword" type="password" elementId="new-account-password" placeholder="6 chars or longer%I18N%"}}
+            {{view Ember.TextField valueBinding="view.accountPassword" type="password" elementId="new-account-password" placeholderKey="account.create.password.placeholder"}}
           </div>
         </div>
 
         <div class="row">
           <div class="small-4 columns">
-            <label for="new-account-password-confirmation" class="right inline">Passw%I18N%</label>
+            <label for="new-account-password-confirmation" class="right inline">{{i18n account.create.password_confirmation.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.accountPasswordConfirm" type="password" elementId="new-account-password-confirmation"}}
+            {{view Ember.TextField valueBinding="view.accountPasswordConfirm" type="password" elementId="new-account-password-confirmation" placeholderKey="account.create.password_confirmation.placeholder"}}
           </div>
         </div>
 
@@ -36,5 +36,5 @@
 
   <hr />
 
-  <a href="#" class="button radius" {{action createAccount target="view"}}>Create Account%I18N%</a>
+  <a href="#" class="button radius" {{action createAccount target="view"}}>{{i18n account.create.action.default}}</a>
 </div>

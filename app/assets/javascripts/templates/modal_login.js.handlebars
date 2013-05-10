@@ -5,19 +5,19 @@
 
         <div class="row">
           <div class="small-4 columns">
-            <label for="login-email" class="right inline">E-Mail%I18N%</label>
+            <label for="login-email" class="right inline">{{i18n account.login.email.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.loginEmail" placeholder="mail@example.com" elementId="login-email" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
+            {{view Ember.TextField valueBinding="view.loginEmail" placeholderKey="account.login.email.placeholder" elementId="login-email" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
           </div>
         </div>
 
         <div class="row">
           <div class="small-4 columns">
-            <label for="login-password" class="right inline">Passw%I18N%</label>
+            <label for="login-password" class="right inline">{{i18n account.login.password.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Ember.TextField valueBinding="view.loginPassword" type="password" elementId="login-password"}}
+            {{view Ember.TextField valueBinding="view.loginPassword" type="password" elementId="login-password" placeholderKey="account.login.password.placeholder"}}
           </div>
         </div>
 
@@ -27,6 +27,6 @@
 
   <hr />
 
-  <a href="#" class="button radius" {{action login target="view"}}>%I18N%</a>
-  <span class="small inline">create_invite%I18N% <a id="new-account-link" {{action newAccount target="view"}}>create_action%I18N%</a></span>
+  <a href="#" class="button radius" {{action login target="view"}}>{{i18n account.login.action.default}}</a>
+  <span class="small inline">{{i18n account.login.no_account.invite}} <a id="new-account-link" {{action newAccount target="view"}}>{{i18n account.login.no_account.action}}</a></span>
 </div>

@@ -23,3 +23,4 @@ en:
   login:
     errors: "%{errors}"
     something_already_taken: "Account already exists."
+    incorrect_username_or_password: "incorrect_username_or_password"

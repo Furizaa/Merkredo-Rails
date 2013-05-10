@@ -4,10 +4,13 @@
 #= require handlebars
 #= require ember
 
+#= require ./helpers/i18n_helpers
+
 #= require ./merkredo
 
-#= require_tree ./controllers
 #= require ./models/merkredo
+
+#= require_tree ./controllers
 #= require_tree ./models
 #= require_tree ./templates
 #= require_tree ./views
