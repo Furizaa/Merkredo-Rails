@@ -1,4 +1,4 @@
-Merkredo.ModalBodyView = Ember.View.extend
+Merkredo.ModalBodyView = Merkredo.View.extend
 
   flash: (message, className) ->
     $alert = $('#modal-alert').hide().removeClass('success alert')

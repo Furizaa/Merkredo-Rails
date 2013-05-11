@@ -6,12 +6,20 @@ en:
         email:
           label: "E-Mail:"
           placeholder: "mail@example.com"
+          invalid: "Invalid E-Mail address"
+          checking: "Checking availability..."
+          available: "Email is available"
+          not_available: "Email is not available"
         password:
           label: "Password:"
-          placeholder: "At least 5 characters long"
+          placeholder: "At least 6 characters long"
+          to_short: "Password mus be at least 6 characters long"
+          ok: "Password looks fine"
         password_confirmation:
           label: "Confirm password:"
           placeholder: ""
+          no_match: "Confirmation mus match password"
+          ok: "Matches password"
         action:
           default: "Create Account"
           load: "Creating Account..."

@@ -1,4 +1,4 @@
-window.Merkredo = Merkredo = Ember.Application.create
+window.Merkredo = Merkredo = Ember.Application.createWithMixins
   rootElement: '#main'
 
   ajax: ->

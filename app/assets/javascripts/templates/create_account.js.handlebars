@@ -9,6 +9,7 @@
           </div>
           <div class="small-8 columns">
             {{view Merkredo.TextField valueBinding="view.accountEmail" placeholderKey="account.create.email.placeholder" elementId="new-account-email" autofocus="autofocus"}}
+            <p>{{view Merkredo.InputTipView validationBinding="view.emailValidation"}}</p>
           </div>
         </div>
 
@@ -18,6 +19,7 @@
           </div>
           <div class="small-8 columns">
             {{view Merkredo.TextField valueBinding="view.accountPassword" type="password" elementId="new-account-password" placeholderKey="account.create.password.placeholder"}}
+            <p>{{view Merkredo.InputTipView validationBinding="view.passwordValidation"}}</p>
           </div>
         </div>
 
@@ -26,7 +28,8 @@
             <label for="new-account-password-confirmation" class="right inline">{{i18n account.create.password_confirmation.label}}</label>
           </div>
           <div class="small-8 columns">
-            {{view Merkredo.TextField valueBinding="view.accountPasswordConfirm" type="password" elementId="new-account-password-confirmation" placeholderKey="account.create.password_confirmation.placeholder"}}
+            {{view Merkredo.TextField valueBinding="view.accountPasswordConfirmation" type="password" elementId="new-account-password-confirmation" placeholderKey="account.create.password_confirmation.placeholder"}}
+            <p>{{view Merkredo.InputTipView validationBinding="view.passwordConfirmValidation"}}</p>
           </div>
         </div>
 

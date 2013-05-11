@@ -1,0 +1,1 @@
+Merkredo.View = Ember.View.extend( Merkredo.Presence, {})

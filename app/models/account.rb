@@ -16,6 +16,11 @@ class Account < ActiveRecord::Base
 
   PASSWORD_MIN_LENGTH = 6
 
+  def self.email_available?(email)
+    lower = email.downcase
+    Account.where(email: lower).blank?
+  end
+
   def password=(password)
     @raw_password = password unless password.blank?
   end

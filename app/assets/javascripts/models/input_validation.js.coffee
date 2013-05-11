@@ -1,0 +1,1 @@
+Merkredo.InputValidation = Ember.Object.extend()

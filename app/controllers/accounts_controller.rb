@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+
   def create
     account = Account.new_from_params(params)
     account.password_required!
@@ -12,5 +13,14 @@ class AccountsController < ApplicationController
     }
   rescue ActiveRecord::StatementInvalid
     render json: { success: false, message: I18n.t('login.something_already_taken') }
+  end
+
+  def check_email
+    requires_parameters(:email)
+    if Account.email_available?(params[:email])
+      render json: { available: true }
+    else
+      render json: { available: false }
+    end
   end
 end

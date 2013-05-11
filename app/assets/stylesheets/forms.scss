@@ -1,0 +1,14 @@
+
+//
+// Form Js Validation Tips
+//
+.tip {
+  font-size: 13px;
+  font-weight: bold;
+  &.good {
+    color: $success-color;
+  }
+  &.bad {
+    color: $alert-color;
+  }
+}

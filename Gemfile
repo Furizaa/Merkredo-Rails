@@ -13,6 +13,8 @@ gem 'ember-rails', git: 'git://github.com/emberjs/ember-rails.git', ref: '57bbe3
 gem 'barber', '0.3.0'
 gem 'ember-source', '1.0.0.rc3.3'
 
+gem 'font-awesome-sass-rails', '~> 3.0.2.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
