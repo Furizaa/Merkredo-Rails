@@ -27,6 +27,6 @@
 
   <hr />
 
-  <a href="#" class="button radius" {{action login target="view"}}>{{i18n account.login.action.default}}</a>
+  <button href="#" class="button radius" {{bindAttr disabled="view.loginDisabled"}} {{action login target="view"}}>{{view.loginButtonText}}</button>
   <span class="small inline">{{i18n account.login.no_account.invite}} <a id="new-account-link" {{action newAccount target="view"}}>{{i18n account.login.no_account.action}}</a></span>
 </div>

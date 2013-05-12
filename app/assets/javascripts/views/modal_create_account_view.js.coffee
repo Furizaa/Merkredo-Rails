@@ -4,22 +4,33 @@ Merkredo.CreateAccountView = Merkredo.ModalBodyView.extend
   title: Em.String.i18n 'account.create.title'
 
   uniqueEmailValidation: null
+  formSubmitted: false
+
+  submitDisabled: ( ->
+    return true if @get 'formSubmitted'
+    return true if @get 'emailValidation.failed'
+    return true if @get 'passwordValidation.failed'
+    return true if @get 'passwordConfirmValidation.failed'
+    false
+  ).property 'formSubmitted',
+             'emailValidation.failed',
+             'passwordValidation.failed',
+             'passwordConfirmValidation.failed'
 
   createAccount: ->
-    return @set 'uniqueEmailValidation', Merkredo.InputValidation.create
-      ok: true
-      reason: Em.String.i18n 'account.create.email.available'
-
+    @set 'formSubmitted', true
     ajax = Merkredo.Account.createAccount @get('accountEmail'), @get('accountPassword')
     ajax.then (result) =>
       if result.success
         @flash '', 'success'
         #window.location.reload()
       else
-        @flash result.message || 'create_failed%I18N%', 'alert'
+        @set 'formSubmitted', false
+        @flash result.message || 'account.create.action.failed', 'alert'
 
     ,() =>
-      @flash 'create_failed%I18N%', 'alert'
+      @set 'formSubmitted', false
+      @flash 'account.create.action.failed', 'alert'
 
 
   basicEmailValidation: ( ->

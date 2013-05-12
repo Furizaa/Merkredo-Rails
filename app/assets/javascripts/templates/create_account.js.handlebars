@@ -39,5 +39,5 @@
 
   <hr />
 
-  <a href="#" class="button radius" {{action createAccount target="view"}}>{{i18n account.create.action.default}}</a>
+  <button href="#" class="button radius" {{bindAttr disabled="view.submitDisabled"}} {{action createAccount target="view"}}>{{i18n account.create.action.default}}</button>
 </div>

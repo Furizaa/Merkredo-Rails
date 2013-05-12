@@ -22,7 +22,7 @@ en:
           ok: "Matches password"
         action:
           default: "Create Account"
-          load: "Creating Account..."
+          failed: "Account creation failed"
 
       login:
         title: "Account Login"
@@ -35,6 +35,7 @@ en:
         action:
           default: "Login"
           load: "Logging in..."
+          failed: "Account login failed"
         no_account:
           invite: "No account yet?"
           action: "Create one!"
