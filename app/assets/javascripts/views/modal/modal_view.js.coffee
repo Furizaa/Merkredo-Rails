@@ -16,7 +16,7 @@ Merkredo.ModalView = Ember.ContainerView.extend
   elementId: 'merkredo-modal',
 
   modalHeaderView: Ember.View.create
-    templateName: 'modal_header'
+    templateName: 'modal/modal_header'
     titleBinding: 'controller.currentView.title'
 
   modalBodyView: Ember.ContainerView.create

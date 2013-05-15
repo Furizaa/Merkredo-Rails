@@ -13,7 +13,7 @@
 #= require_tree ./components
 
 #= require ./views/view
-#= require ./models/merkredo
+#= require ./models/model
 #= require ./routes/merkredo_route
 #= require ./routes/restricted_route
 
