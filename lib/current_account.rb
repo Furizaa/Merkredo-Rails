@@ -19,7 +19,7 @@ module CurrentAccount
     cookies.permanent[:_t] = { value: user.auth_token, httponly: true }
   end
 
-  def current_user
+  def current_account
     return @current_user if @current_user || @not_logged_in
 
     if session[:current_account_id].blank?

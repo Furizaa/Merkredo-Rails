@@ -1,4 +1,6 @@
 window.Merkredo = Merkredo = Ember.Application.createWithMixins
+  LOG_TRANSITIONS: true
+
   rootElement: '#main'
 
   ajax: ->

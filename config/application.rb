@@ -31,7 +31,12 @@ module Merkredo
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += %W(#{config.root}/app/serializers)
+
     config.assets.paths += %W(#{config.root}/config/locales)
+
+    config.assets.precompile += ['server_store.js']
 
     # Precompile all available locales
     Dir.glob("#{config.root}/app/assets/javascripts/locales/*.js.erb").each do |file|

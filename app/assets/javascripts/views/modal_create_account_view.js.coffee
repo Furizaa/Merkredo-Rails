@@ -22,8 +22,7 @@ Merkredo.CreateAccountView = Merkredo.ModalBodyView.extend
     ajax = Merkredo.Account.createAccount @get('accountEmail'), @get('accountPassword')
     ajax.then (result) =>
       if result.success
-        @flash '', 'success'
-        #window.location.reload()
+        window.location.reload()
       else
         @set 'formSubmitted', false
         @flash result.message || 'account.create.action.failed', 'alert'

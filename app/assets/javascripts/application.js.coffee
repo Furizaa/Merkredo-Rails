@@ -14,6 +14,8 @@
 
 #= require ./views/view
 #= require ./models/merkredo
+#= require ./routes/merkredo_route
+#= require ./routes/restricted_route
 
 #= require_tree ./controllers
 #= require_tree ./models

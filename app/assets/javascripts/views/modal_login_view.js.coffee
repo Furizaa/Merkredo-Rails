@@ -36,6 +36,8 @@ Merkredo.LoginView = Merkredo.ModalBodyView.extend
       if result.error
         @set 'formSubmitted', false
         @flash result.error, 'alert'
+      else
+        window.location.reload()
 
     ,() =>
       @flash Em.String.i18n('account.login.action.failed'), 'alert'

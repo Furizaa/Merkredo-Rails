@@ -28,7 +28,24 @@
       </div>
     </section>
 
+
+    <%= javascript_include_tag 'server_store.js' %>
+    <%- if @preload.present? %>
+      <script>
+        <%- @preload.each do |key, json| %>
+          ServerStore.store("<%= key %>", <%= raw json %>);
+        <% end %>
+      </script>
+    <%- end %>
+
     <%= javascript_include_tag "locales/#{I18n.locale}" %>
     <%= javascript_include_tag "application" %>
+
+    <script>
+      Merkredo.Router.map(function() {
+        return Merkredo.routeBuilder.call(this);
+      });
+      //Merkredo.start();
+    </script>
   </body>
 </html>

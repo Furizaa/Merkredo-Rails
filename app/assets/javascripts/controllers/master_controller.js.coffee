@@ -1,0 +1,1 @@
+Merkredo.MasterController = Ember.Controller.extend({})

@@ -4,6 +4,9 @@
 #@module Merkredo
 Merkredo.ModalView = Ember.ContainerView.extend
 
+  attributeBindings: ['data-offset']
+  'data-offset': 0
+
   childViews: ['modalHeaderView', 'modalBodyView']
 
   classNames: ['modal reveal-modal small']

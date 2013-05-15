@@ -1,0 +1,1 @@
+Merkredo.AccountController = Ember.ObjectController.extend({})
