@@ -36,7 +36,7 @@ module Merkredo
 
     config.assets.paths += %W(#{config.root}/config/locales)
 
-    config.assets.precompile += ['server_store.js']
+    config.assets.precompile += ['components/server_store.js']
 
     # Precompile all available locales
     Dir.glob("#{config.root}/app/assets/javascripts/locales/*.js.erb").each do |file|

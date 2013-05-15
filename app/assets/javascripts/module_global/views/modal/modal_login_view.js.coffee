@@ -1,6 +1,6 @@
 Merkredo.LoginView = Merkredo.ModalBodyView.extend
 
-  templateName: 'modal/modal_login'
+  templateName: 'module_global/modal/modal_login'
   title: Em.String.i18n 'account.login.title'
 
   formSubmitted: false

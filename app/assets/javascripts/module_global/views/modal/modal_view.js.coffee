@@ -4,9 +4,6 @@
 #@module Merkredo
 Merkredo.ModalView = Ember.ContainerView.extend
 
-  attributeBindings: ['data-offset']
-  'data-offset': 0
-
   childViews: ['modalHeaderView', 'modalBodyView']
 
   classNames: ['modal reveal-modal small']
@@ -16,7 +13,7 @@ Merkredo.ModalView = Ember.ContainerView.extend
   elementId: 'merkredo-modal',
 
   modalHeaderView: Ember.View.create
-    templateName: 'modal/modal_header'
+    templateName: 'module_global/modal/modal_header'
     titleBinding: 'controller.currentView.title'
 
   modalBodyView: Ember.ContainerView.create

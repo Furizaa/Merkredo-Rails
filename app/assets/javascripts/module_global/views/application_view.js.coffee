@@ -1,3 +1,3 @@
 Merkredo.ApplicationView = Ember.View.extend
 
-  templateName: 'application'
+  templateName: 'module_global/application'

@@ -9,3 +9,4 @@ window.ServerStore = ServerStore =
 
   remove: (key) ->
     if @data[key] then delete @data[key]
+

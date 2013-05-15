@@ -1,6 +1,6 @@
 Merkredo.CreateAccountView = Merkredo.ModalBodyView.extend
 
-  templateName: 'modal/modal_create_account'
+  templateName: 'module_global/modal/modal_create_account'
   title: Em.String.i18n 'account.create.title'
 
   uniqueEmailValidation: null

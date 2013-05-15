@@ -23,13 +23,11 @@
 
   <body>
     <section id="main">
-      <div id="main-outlet" class="container">
         <%= yield %>
-      </div>
     </section>
 
 
-    <%= javascript_include_tag 'server_store.js' %>
+    <%= javascript_include_tag 'components/server_store.js' %>
     <%- if @preload.present? %>
       <script>
         <%- @preload.each do |key, json| %>
@@ -39,12 +37,19 @@
     <%- end %>
 
     <%= javascript_include_tag "locales/#{I18n.locale}" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag 'module_global' %>
+    <% if session? %>
+         <%= javascript_include_tag 'module_app' %>
+    <% end %>
 
     <script>
       Merkredo.Router.map(function() {
         return Merkredo.routeBuilder.call(this);
       });
+      //Ember.LOG_BINDINGS = true;
+      //Ember.onerror = function(error) {
+      //  console.log(error);
+      //}
       //Merkredo.start();
     </script>
   </body>
