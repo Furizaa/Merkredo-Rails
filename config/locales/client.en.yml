@@ -40,5 +40,8 @@ en:
           invite: "No account yet?"
           action: "Create one!"
 
+    header:
+      no_name: "Nobody"
+
 
 

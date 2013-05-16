@@ -3,7 +3,7 @@ Merkredo::Application.routes.draw do
 
   root to: 'application#index'
 
-  resources :session, only: [:create]
+  resources :session, only: [:create, :destroy]
 
   resources :accounts, only: [:create] do
     collection do

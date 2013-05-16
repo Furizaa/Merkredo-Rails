@@ -1,6 +1,8 @@
 class CurrentAccountSerializer < ActiveModel::Serializer
 
   attributes :email,
-             :id
+             :id,
+             :first_name,
+             :last_name
 
 end

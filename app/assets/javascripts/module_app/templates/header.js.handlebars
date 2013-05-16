@@ -1,0 +1,20 @@
+<nav id="header">
+  <h5>Merkredo</h5>
+
+  <div id="account-outlet" class="right">
+    <a href="#" data-dropdown="account-dropdown">
+      <i class="icon icon-cog"></i>
+    </a>
+    {{#if view.currentAccount.fullName }}
+      {{view.currentAccount.fullName}}
+    {{else}}
+      <em>{{i18n header.no_name}}</em>
+    {{/if}}
+    <br />
+    {{view.currentAccount.email}}
+  </div>
+
+  <ul id="account-dropdown" class="f-dropdown content" data-dropdown-content>
+    <li><a href="#" {{action logout target="Merkredo"}}>Logout</a></li>
+  </ul>
+</nav>

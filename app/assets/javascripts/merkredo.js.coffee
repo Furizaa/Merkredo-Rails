@@ -1,7 +1,12 @@
 window.Merkredo = Merkredo = Ember.Application.createWithMixins
   LOG_TRANSITIONS: true
 
-  rootElement: '#main'
+  rootElement: '#merkredo'
+
+  logout: ->
+    ajax = Merkredo.ajax '/session/' + @get('currentAccoint.id'), { type: 'DELETE' }
+    ajax.then ->
+      window.location.reload()
 
   ajax: ->
     if 1 == arguments.length

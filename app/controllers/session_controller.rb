@@ -13,4 +13,10 @@ class SessionController < ApplicationController
     render json: { error: I18n.t('login.incorrect_username_or_password') }
   end
 
+  def destroy
+    session[:current_account_id] = nil
+    cookies[:_t] = nil
+    render nothing: true
+  end
+
 end
