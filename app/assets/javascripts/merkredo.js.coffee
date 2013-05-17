@@ -4,7 +4,7 @@ window.Merkredo = Merkredo = Ember.Application.createWithMixins
   rootElement: '#merkredo'
 
   logout: ->
-    ajax = Merkredo.ajax '/session/' + @get('currentAccoint.id'), { type: 'DELETE' }
+    ajax = Merkredo.ajax '/session/' + @get('currentAccount.id'), { type: 'DELETE' }
     ajax.then ->
       window.location.reload()
 

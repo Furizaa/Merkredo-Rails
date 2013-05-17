@@ -12,11 +12,25 @@
     color: inherit;
     line-height: emCalc(50px);
     padding-left: emCalc(20px);
-    margin-top: 0;
+    margin: 0px;
     display: inline-block;
   }
 
-  #account-outlet {
-    margin: 15px;
+  ul.account-info {
+    cursor: pointer;
+    font-size: emCalc(14px);
+    margin: 10px 20px;
+    line-height: emCalc(20px);
+
+    li {
+      margin-left: 5px;
+      &:last-child {
+        margin: 5px 0 0 10px;
+      }
+    }
+  }
+
+  i {
+    margin-top: 3px;
   }
 }
