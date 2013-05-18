@@ -1,1 +1,13 @@
 {{view Merkredo.HeaderView}}
+<section id="app">
+  <div class="row">
+    <div class="small-2 large-2 columns">
+      {{view Merkredo.MainMenuView}}
+    </div>
+    <div class="small-10 large-10 columns">
+      <div class="row">
+        {{outlet appcontext}}
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,6 +4,31 @@
 
 @import 'forms';
 
+body {
+  background-color: #faf4f1;
+}
+
+/**
+ *
+ */
+#app {
+  width: 980px;
+}
+
+/**
+ *
+ */
+#main-menu {
+  background-color: #ffffff;
+
+  a.active {
+    font-weight: bold;
+  }
+}
+
+/*
+ * Header, Account Info
+ */
 #header {
   background-color: #111111;
   color: #ffffff;

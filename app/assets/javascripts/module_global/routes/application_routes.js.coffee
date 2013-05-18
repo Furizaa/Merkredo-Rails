@@ -1,4 +1,5 @@
 Merkredo.Route.buildRoutes ->
 
   @route 'ecom', { path: '/' }
-  @route 'app', { path: '/app'}
+  @resource 'app', { path: '/app'}, ->
+    @route 'employee'
