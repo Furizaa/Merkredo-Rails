@@ -42,6 +42,10 @@ Merkredo.LoginView = Merkredo.ModalBodyView.extend
     ,() =>
       @flash Em.String.i18n('account.login.action.failed'), 'alert'
 
+  didInsertElement: ->
+    Em.run.next =>
+      $('#login-password').on 'keydown', (event) =>
+        @login() if event.keyCode == 13
 
 
 

@@ -117,6 +117,12 @@ Merkredo.CreateAccountView = Merkredo.ModalBodyView.extend
           failed: true
           reason: Em.String.i18n 'account.create.email.not_available'
 
+  didInsertElement: ->
+    Ember.run.next =>
+      $('input[type="text"], input[type="password"]').on 'keydown', (event) =>
+        @createAccount() if event.keyCode == 13 and !@get('submitDisabled')
+
+
 
 
 
