@@ -26,3 +26,6 @@ en:
     errors: "%{errors}"
     something_already_taken: "Account already exists."
     incorrect_username_or_password: "Incorrect username or password"
+
+  employee:
+    not_found: "Employee with id %{id} could not be found"

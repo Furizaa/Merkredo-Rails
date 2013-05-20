@@ -5,9 +5,22 @@ require 'rubygems'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+module Helpers
+
+  def log_in(fabricator=nil)
+    account = Fabricate(fabricator || :account)
+    log_in_account(account)
+    account
+  end
+
+  def log_in_account(account)
+    session[:current_account_id] = account.id
+  end
+
+end
 
 RSpec.configure do |config|
 
@@ -34,6 +47,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   #config.order = 'random'
+
+  config.include Helpers
 end
 
 

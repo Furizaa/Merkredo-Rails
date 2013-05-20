@@ -5,6 +5,8 @@ Merkredo::Application.routes.draw do
 
   resources :session, only: [:create, :destroy]
 
+  resources :employee, only: [:create, :update, :index]
+
   resources :accounts, only: [:create] do
     collection do
       get 'check_email'

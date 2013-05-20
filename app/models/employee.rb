@@ -10,6 +10,14 @@ class Employee < ActiveRecord::Base
 
   belongs_to :company
 
+  def self.new_from_params(params)
+    employee = Employee.new
+    employee.first_name = params[:first_name]
+    employee.last_name = params[:last_name]
+    employee.email = params[:email]
+    employee
+  end
+
   private
 
   def validate_name
