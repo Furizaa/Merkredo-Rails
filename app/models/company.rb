@@ -2,7 +2,8 @@ class Company < ActiveRecord::Base
 
   attr_accessible :name, :plan
 
-  has_many :accounts, dependent: :restrict
+  has_many :accounts, dependent: :delete_all
+  has_many :employees, dependent: :delete_all
 
   validates :name, :plan, presence: true, allow_blank: false
   validate :companyname_validator

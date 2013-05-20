@@ -1,6 +1,12 @@
 en:
 
   models:
+    generic:
+      first_name:
+        characters: "contains invalid characters."
+      last_name:
+        characters: "contains invalid characters."
+
     company:
       name:
         blank: "Company name must be set."
@@ -9,10 +15,6 @@ en:
         characters: "Company name contains invalid characters."
 
     account:
-      first_name:
-        characters: "contains invalid characters."
-      last_name:
-        characters: "contains invalid characters."
       password:
         short: "must be at least %{min} characters long."
 

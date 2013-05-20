@@ -9,6 +9,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :email
   validate :validate_real_name
   validate :validate_password
+  validate :validate_real_name
   validates_uniqueness_of :email
 
   before_save :ensure_password_is_hashed
@@ -70,13 +71,8 @@ class Account < ActiveRecord::Base
   end
 
   def validate_real_name
-    test = /[\$"!§%&\\\/\(\)=\?\*\+#\@0-9]/i
-    if first_name =~ test
-      errors.add(:first_name, I18n.t(:'models.account.first_name.characters'))
-    end
-    if last_name =~ test
-      errors.add(:last_name, I18n.t(:'models.account.last_name.characters'))
-    end
+    validator = RealNameValidator.new(errors, first_name, last_name)
+    validator.validate
   end
 
   def validate_password
