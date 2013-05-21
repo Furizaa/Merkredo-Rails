@@ -3,10 +3,7 @@ require 'spec_helper'
 
 describe Account do
 
-  it { should belong_to :company }
   it { should validate_presence_of :email }
-  it { should_not validate_presence_of :first_name }
-  it { should_not validate_presence_of :last_name }
   it { should validate_uniqueness_of :email}
 
   describe '#email' do
@@ -25,20 +22,6 @@ describe Account do
       account.email = 'DeVeLoPeR@Merkredo.Org'
       account.email.should eq 'developer@merkredo.org'
     end
-  end
-
-  describe '#name' do
-
-    ['Andreas', 'Josè', "d'Arras", 'Luther King, Jr.', 'Sausage-Hausen'].each do |finename|
-      it { should allow_value(finename).for(:first_name) }
-      it { should allow_value(finename).for(:last_name) }
-    end
-
-    %w(Dave$ "john #hash @twitter §what the? hel*).each do |badname|
-      it { should_not allow_value(badname).for(:first_name) }
-      it { should_not allow_value(badname).for(:last_name) }
-    end
-
   end
 
   describe '#password' do
@@ -73,12 +56,6 @@ describe Account do
       params = { email: 'developer@merkredo.com', password: 'secret' }
       account = Account.new_from_params(params)
       account.email.should eq(params[:email])
-    end
-
-    it 'adds a new company' do
-      account.company_id = nil
-      account.save!
-      account.company_id.should be_present
     end
   end
 

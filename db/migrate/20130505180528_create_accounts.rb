@@ -4,12 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :email, limit: 256
       t.string :password_hash, limit: 64
       t.string :salt, limit: 32
-      t.string :first_name
-      t.string :last_name
-      t.integer :gender, default: 0
-      t.integer :group, default: 0
       t.string :auth_token, limit: 32
-      t.integer :company_id
 
       t.timestamps
     end

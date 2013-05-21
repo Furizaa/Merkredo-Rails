@@ -1,18 +1,14 @@
 require_dependency 'pbkdf2'
 
 class Account < ActiveRecord::Base
-  attr_accessible :email, :gender, :password
-
-  belongs_to :company
+  attr_accessible :email, :password
 
   validates :email, email: true
   validates_presence_of :email
-  validate :validate_real_name
   validate :validate_password
   validates_uniqueness_of :email
 
   before_save :ensure_password_is_hashed
-  before_create :create_company
 
   PASSWORD_MIN_LENGTH = 6
 
@@ -52,12 +48,6 @@ class Account < ActiveRecord::Base
 
   private
 
-  def create_company
-    company = Company.new name: 'Acme Inc.', plan: 0
-    company.save!
-    self.company_id = company.id
-  end
-
   def hash_password(password, salt)
     Pbkdf2.hash_password(password, salt, Rails.configuration.pbkdf2_iterations)
   end
@@ -66,16 +56,6 @@ class Account < ActiveRecord::Base
     if @raw_password
       self.salt = SecureRandom.hex(16)
       self.password_hash = hash_password(@raw_password, salt)
-    end
-  end
-
-  def validate_real_name
-    test = /[\$"!§%&\\\/\(\)=\?\*\+#\@0-9]/i
-    if first_name =~ test
-      errors.add(:first_name, I18n.t(:'models.account.first_name.characters'))
-    end
-    if last_name =~ test
-      errors.add(:last_name, I18n.t(:'models.account.last_name.characters'))
     end
   end
 

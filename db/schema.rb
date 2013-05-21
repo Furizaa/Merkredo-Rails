@@ -17,21 +17,9 @@ ActiveRecord::Schema.define(:version => 20130505180528) do
     t.string   "email",         :limit => 256
     t.string   "password_hash", :limit => 64
     t.string   "salt",          :limit => 32
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "gender",                       :default => 0
-    t.integer  "group",                        :default => 0
-    t.string   "auth_token"
-    t.integer  "company_id"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-  end
-
-  create_table "companies", :force => true do |t|
-    t.string   "name",       :limit => 30, :null => false
-    t.integer  "plan",                     :null => false
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "auth_token",    :limit => 32
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
 end
