@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505180528) do
+ActiveRecord::Schema.define(:version => 20130522181404) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",         :limit => 256
@@ -20,6 +20,35 @@ ActiveRecord::Schema.define(:version => 20130505180528) do
     t.string   "auth_token",    :limit => 32
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "attendees", :force => true do |t|
+    t.integer  "event_id",                 :null => false
+    t.string   "email",                    :null => false
+    t.string   "token",      :limit => 64, :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.datetime "date",                                        :null => false
+    t.datetime "date_orig",                                   :null => false
+    t.string   "timezone",                                    :null => false
+    t.integer  "account_id",                                  :null => false
+    t.string   "token",      :limit => 64,                    :null => false
+    t.boolean  "verified",                 :default => false, :null => false
+    t.string   "uid",                                         :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "attendee_id", :null => false
+    t.integer  "event_id",    :null => false
+    t.integer  "roti",        :null => false
+    t.text     "shout"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

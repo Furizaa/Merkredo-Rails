@@ -3,6 +3,8 @@ require_dependency 'pbkdf2'
 class Account < ActiveRecord::Base
   attr_accessible :email, :password
 
+  has_many :events
+
   validates :email, email: true
   validates_presence_of :email
   validate :validate_password
