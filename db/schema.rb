@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20130522181404) do
   end
 
   create_table "events", :force => true do |t|
+    t.string   "name",                                        :null => false
+    t.text     "body"
     t.datetime "date",                                        :null => false
     t.datetime "date_orig",                                   :null => false
     t.string   "timezone",                                    :null => false

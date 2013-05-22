@@ -1,7 +1,31 @@
 class Event < ActiveRecord::Base
-  attr_accessible :account_id, :date, :date_orig, :timezone, :token, :uid, :verified
+  attr_accessible  :date, :date_orig, :timezone, :token, :uid, :name, :body
 
   belongs_to :account
   has_many :attendees
   has_many :ratings
+
+  after_initialize :create_token
+  before_validation :sanitize_name
+
+  validates :name, presence: true, length: { in: 1..64 }
+  validates :date, presence: true
+  validates :date_orig, presence: true
+  validates :timezone, presence: true, length: { in: 1..24 }
+  validates :token, presence: true, length: { is: 64 }
+  validates :uid, presence: true, uniqueness: true
+
+  private
+
+  def create_token
+    self.token = SecureRandom.hex(32)
+  end
+
+  def sanitize_name
+    return unless self.name
+    self.name.gsub!(/^[^A-Za-z0-9]+|[^A-Za-z0-9_]+$/, '')
+    self.name.gsub!(/[^A-Za-z0-9_ ]+/, '_')
+    self.name = self.name[0, 64]
+  end
+
 end
