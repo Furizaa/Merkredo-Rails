@@ -33,9 +33,8 @@ ActiveRecord::Schema.define(:version => 20130522181404) do
   create_table "events", :force => true do |t|
     t.string   "name",                                        :null => false
     t.text     "body"
-    t.datetime "date",                                        :null => false
-    t.datetime "date_orig",                                   :null => false
-    t.string   "timezone",                                    :null => false
+    t.datetime "dtbegin",                                     :null => false
+    t.datetime "dtend",                                       :null => false
     t.integer  "account_id",                                  :null => false
     t.string   "token",      :limit => 64,                    :null => false
     t.boolean  "verified",                 :default => false, :null => false

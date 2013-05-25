@@ -7,9 +7,8 @@ describe Event do
   it { should belong_to :account }
 
   it { should_not validate_presence_of :name }
-  it { should validate_presence_of :date }
-  it { should validate_presence_of :date_orig }
-  it { should validate_presence_of :timezone }
+  it { should validate_presence_of :dtbegin }
+  it { should validate_presence_of :dtend }
   it { should validate_presence_of :token }
   it { should validate_presence_of :uid }
 
@@ -66,15 +65,17 @@ describe Event do
 
       let (:event) { Event.new_from_ical_event(ical_event.events.first) }
 
-      it 'date_time' do
-        event.date.to_date.to_s.should eq '2015-07-29'
+      it 'start date_time' do
+        event.dtbegin.to_s.should eq '2015-07-29 07:00:00 UTC'
+      end
+      it 'end date_time' do
+        event.dtend.to_s.should eq '2015-07-29 08:00:00 UTC'
+      end
+      it 'body' do
+        event.body.should eq 'MA-6 First US Manned Spaceflight'
       end
       it 'uid' do
         event.uid.should eq '#12345'
-      end
-      it 'should have timezone fixed' do
-        event.date.strftime('%H').should eq '07'
-        event.date.utc?.should be_true
       end
 
     end

@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible  :date, :date_orig, :timezone, :token, :uid, :name, :body
+  attr_accessible  :dtbegin, :dtend, :token, :uid, :name, :body
 
   belongs_to :account
   has_many :attendees
@@ -9,9 +9,8 @@ class Event < ActiveRecord::Base
   before_validation :sanitize_name
 
   validates :name, length: { in: 0..64 }
-  validates :date, presence: true
-  validates :date_orig, presence: true
-  validates :timezone, presence: true, length: { in: 1..24 }
+  validates :dtbegin, presence: true
+  validates :dtend, presence: true
   validates :token, presence: true, length: { is: 64 }
   validates :uid, presence: true, uniqueness: true
 
@@ -20,7 +19,9 @@ class Event < ActiveRecord::Base
   end
 
   def merge_with_ical_event(ical_event)
-    self.date = ical_event.dtstart
+    self.dtbegin = ical_event.dtstart
+    self.dtend = ical_event.dtend
+    self.body = ical_event.description
     self.uid = ical_event.uid
     self
   end

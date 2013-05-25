@@ -23,7 +23,8 @@ describe CalInterface do
       end
 
       it 'converts date_time to utc' do
-        cal.events.first.date.utc?.should be_true
+        cal.events.first.dtbegin.utc?.should be_true
+        cal.events.first.dtend.utc?.should be_true
       end
 
     end
