@@ -44,17 +44,27 @@ describe Event do
 
   describe 'ical binding' do
 
-    let (:ical_event) { Fabricate.build(:ical_event) }
-    let (:ical_timezone) { Fabricate.build(:ical_timezone) }
+    let (:ical_event) do
+      RiCal.Calendar do
+        event do
+          description   'MA-6 First US Manned Spaceflight'
+          dtstart       Time.zone.parse('2015-07-29T12:00:00+05:00')
+          dtend         Time.zone.parse('2015-07-29T13:00:00+05:00')
+          location      'Cape Canaveral'
+          add_attendee  'john.glenn@nasa.gov'
+          uid           '#12345'
+        end
+      end
+    end
 
     it 'creates new event from ical data' do
-      event = Event.new_from_ical_event(ical_event, ical_timezone)
+      event = Event.new_from_ical_event(ical_event.events.first)
       event.should be_kind_of Event
     end
 
     describe 'ical created event' do
 
-      let (:event) { Event.new_from_ical_event(ical_event, ical_timezone) }
+      let (:event) { Event.new_from_ical_event(ical_event.events.first) }
 
       it 'date_time' do
         event.date.to_date.to_s.should eq '2015-07-29'

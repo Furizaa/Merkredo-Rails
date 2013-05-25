@@ -15,13 +15,12 @@ class Event < ActiveRecord::Base
   validates :token, presence: true, length: { is: 64 }
   validates :uid, presence: true, uniqueness: true
 
-  def self.new_from_ical_event(ical_event, ical_timezone)
-    Event.new().merge_with_ical_event(ical_event, ical_timezone)
+  def self.new_from_ical_event(ical_event)
+    Event.new().merge_with_ical_event(ical_event)
   end
 
-  def merge_with_ical_event(ical_event, ical_timezone)
-    time_zone_fix = ical_event.dtstart.strftime('%a, %e %b %Y %H:%M:%S ') + ical_timezone.tzoffsetfrom
-    self.date = Time.zone.parse(time_zone_fix)
+  def merge_with_ical_event(ical_event)
+    self.date = ical_event.dtstart
     self.uid = ical_event.uid
     self
   end

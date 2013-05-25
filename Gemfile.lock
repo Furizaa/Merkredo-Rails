@@ -18,6 +18,12 @@ GIT
       railties (>= 3.1)
 
 GIT
+  remote: https://github.com/Furizaa/ri_cal.git
+  revision: b5eecd2c3d8b1337aed423ea54c4f4215c1e04c3
+  specs:
+    ri_cal (0.8.8)
+
+GIT
   remote: https://github.com/rails-api/active_model_serializers.git
   revision: e6e1b3feaa5382d5e6bc82fe4a45d863bd78870c
   specs:
@@ -107,7 +113,6 @@ GEM
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
-    icalendar (1.4.0)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -228,11 +233,11 @@ DEPENDENCIES
   guard
   guard-jshint-on-rails
   guard-livereload
-  icalendar
   jquery-rails
   pg
   rails (= 3.2.12)
   rb-fsevent
+  ri_cal!
   rspec-rails
   sass-rails (~> 3.2.3)
   seed-fu

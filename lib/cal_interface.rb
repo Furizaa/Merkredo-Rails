@@ -1,12 +1,12 @@
 class CalInterface
 
-  require 'icalendar'
+  require 'ri_cal'
 
   attr_reader :icals
 
-  def initialize(stream)
-    parser = Icalendar::Parser.new(stream, false)
-    @icals = parser.parse
+  def initialize(string)
+    @icals = RiCal.parse_string(string)
+    @icals
   end
 
   def events

@@ -4,7 +4,7 @@ require 'cal_interface'
 describe CalInterface do
 
   formats = {
-      single: File.open(File.dirname(__FILE__) + '/../files/single_event.ics')
+      single: File.open(File.dirname(__FILE__) + '/../files/single_event.ics').read
   }
 
   formats.each do |format, stream|
@@ -15,6 +15,15 @@ describe CalInterface do
       it 'successfully parse file' do
         cal.icals.should be_kind_of Array
         cal.icals.length.should eq 1
+      end
+
+      it 'builds event models' do
+        cal.events.should be_kind_of Array
+        cal.events.length.should eq 1
+      end
+
+      it 'converts date_time to utc' do
+        cal.events.first.date.utc?.should be_true
       end
 
     end
