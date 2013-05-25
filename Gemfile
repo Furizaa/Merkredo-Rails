@@ -6,6 +6,7 @@ gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_
 
 gem 'pg'
 gem 'fast_xor', git: 'git://github.com/CodeMonkeySteve/fast_xor.git'
+gem 'icalendar'
 
 #we had issues with latest, stick to the rev till we figure this out
 # PR that makes it all hang together welcome

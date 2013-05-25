@@ -6,7 +6,7 @@ describe Event do
   it { should have_many :ratings }
   it { should belong_to :account }
 
-  it { should validate_presence_of :name }
+  it { should_not validate_presence_of :name }
   it { should validate_presence_of :date }
   it { should validate_presence_of :date_orig }
   it { should validate_presence_of :timezone }
@@ -40,6 +40,35 @@ describe Event do
       event.save!
       event.name.should eq 'This is some crazy event name that is clearly to long for the ap'
     end
+  end
+
+  describe 'ical binding' do
+
+    let (:ical_event) { Fabricate.build(:ical_event) }
+    let (:ical_timezone) { Fabricate.build(:ical_timezone) }
+
+    it 'creates new event from ical data' do
+      event = Event.new_from_ical_event(ical_event, ical_timezone)
+      event.should be_kind_of Event
+    end
+
+    describe 'ical created event' do
+
+      let (:event) { Event.new_from_ical_event(ical_event, ical_timezone) }
+
+      it 'date_time' do
+        event.date.to_date.to_s.should eq '2015-07-29'
+      end
+      it 'uid' do
+        event.uid.should eq '#12345'
+      end
+      it 'should have timezone fixed' do
+        event.date.strftime('%H').should eq '07'
+        event.date.utc?.should be_true
+      end
+
+    end
+
   end
 
 end
