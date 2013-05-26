@@ -2,8 +2,8 @@ class Event < ActiveRecord::Base
   attr_accessible  :dtbegin, :dtend, :token, :uid, :name, :body
 
   belongs_to :account
-  has_many :attendees
   has_many :ratings
+  has_many :attendees, through: :ratings
 
   after_initialize :create_token
   before_validation :sanitize_name

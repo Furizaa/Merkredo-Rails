@@ -5,6 +5,7 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :event_id, null: false
       t.integer :roti, null: false
       t.text :shout, null: true
+      t.string :token, limit: 64, null: false
 
       t.timestamps
     end

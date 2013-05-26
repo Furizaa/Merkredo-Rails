@@ -24,11 +24,9 @@ ActiveRecord::Schema.define(:version => 20130522181404) do
   end
 
   create_table "attendees", :force => true do |t|
-    t.integer  "event_id",                 :null => false
-    t.string   "email",                    :null => false
-    t.string   "token",      :limit => 64, :null => false
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.string   "email",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -45,12 +43,13 @@ ActiveRecord::Schema.define(:version => 20130522181404) do
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer  "attendee_id", :null => false
-    t.integer  "event_id",    :null => false
-    t.integer  "roti",        :null => false
+    t.integer  "attendee_id",               :null => false
+    t.integer  "event_id",                  :null => false
+    t.integer  "roti",                      :null => false
     t.text     "shout"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "token",       :limit => 64, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end
