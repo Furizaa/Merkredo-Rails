@@ -5,6 +5,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :password_hash, limit: 64
       t.string :salt, limit: 32
       t.string :auth_token, limit: 32
+      t.string :timezone, default: 'UTC'
 
       t.timestamps
     end

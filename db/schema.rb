@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20130522181404) do
     t.string   "password_hash", :limit => 64
     t.string   "salt",          :limit => 32
     t.string   "auth_token",    :limit => 32
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "timezone",                     :default => "UTC"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   create_table "attendees", :force => true do |t|
