@@ -35,4 +35,9 @@ class ApplicationController < ActionController::Base
       raise Merkredo::InvalidParameters.new(p) unless params.has_key?(p)
     end
   end
+
+  def ensure_logged_in
+    raise Merkredo::NotLoggedIn unless current_account.present?
+  end
+
 end

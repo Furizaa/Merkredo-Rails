@@ -1,4 +1,6 @@
 Merkredo::Application.routes.draw do
+  get "event/index"
+
   get "accounts/create"
 
   root to: 'application#index'
@@ -10,6 +12,8 @@ Merkredo::Application.routes.draw do
       get 'check_email'
     end
   end
+
+  resources :event, only: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
