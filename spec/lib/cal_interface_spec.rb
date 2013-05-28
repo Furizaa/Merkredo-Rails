@@ -27,6 +27,13 @@ describe CalInterface do
         cal.events.first.dtend.utc?.should be_true
       end
 
+      let(:attendee) { cal.attendees(cal.events.first.uid).first }
+
+      it 'builds attendees' do
+        attendee.email.should be_present
+        attendee.email.should eq 'fry@planet-express.com'
+      end
+
     end
   end
 

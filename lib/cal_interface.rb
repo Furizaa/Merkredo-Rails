@@ -18,4 +18,14 @@ class CalInterface
     @events
   end
 
+  def attendees(event_uid)
+    return @attendees if @attendees
+    @attendees = []
+    cal_event = @icals.first.events.find { |e| e.uid == event_uid }
+    cal_event.attendee.each do |a|
+      @attendees << Attendee.new(email: a.gsub('MAILTO:', ''))
+    end
+    @attendees
+  end
+
 end
