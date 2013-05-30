@@ -12,6 +12,7 @@
  *= require_self
  */
 
+@import "colors";
 @import "variables";
 
 @import "foundation/components/global";
@@ -50,7 +51,7 @@
 @import "foundation/components/tooltips";
 @import "foundation/components/dropdown";
 
-
-@import "core";
-@import "ecom";
-@import "app";
+@import "components/app";
+@import "components/form";
+@import "components/menus";
+@import "components/utils";

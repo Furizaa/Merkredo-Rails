@@ -1,0 +1,50 @@
+$header-height: emCalc(37px);
+
+#main-menu {
+  background-color: $schema-secondary;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+
+  i {
+    width: 100%;
+    height: emCalc(12px);
+  }
+  a {
+    color: $schema-text-dark;
+    padding: 5px 0;
+    text-align: center;
+
+    &:hover {
+      background-color: darken($schema-secondary, 5%);
+    }
+    &.active {
+      color: $schema-text-lighter;
+    }
+  }
+  span {
+    font-size: emCalc(14px);
+    font-weight: bold;
+  }
+}
+
+#header {
+  background-color: $schema-primary;
+  color: $schema-text-lightest;
+  height: $header-height;
+
+  h5 {
+    color: $schema-text-light;
+    padding-left: emCalc(10px);
+    padding-top: emCalc(4px);
+  }
+}
+
+#title {
+  background-color: $schema-primary-alt;
+  height: $header-height;
+}
+
+#current-account {
+  padding: emCalc(8px) emCalc(10px) 0 0;
+}
