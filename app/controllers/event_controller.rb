@@ -5,10 +5,7 @@ class EventController < ApplicationController
   def index
     events = Event.find_all_by_account_id(current_account.id)
     events ||= []
-    render json: {
-        success: true,
-        events: events
-    }
+    render json: events, root: false
   end
 
 end

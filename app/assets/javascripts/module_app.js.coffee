@@ -1,3 +1,5 @@
+#= require ./vendor/moment-2.0.0.js
+
 #= require ./module_app/routes/restricted_route
 
 #= require_tree ./module_app/controllers

@@ -1,0 +1,11 @@
+<section id="event-list" class="large-3 small-3 columns">
+  {{#each controller itemController="app.event"}}
+    <div class="event row">
+      <a>
+        <div class="calendar-sheet"><span>{{day_of_month}}</span></div>
+        <span class="event-desc calendar-text">{{calendar}}</span>
+        <span class="event-desc event-name">{{model.name}}</span>
+      </a>
+    </div>
+  {{/each}}
+</section>
